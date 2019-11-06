@@ -6,6 +6,7 @@
 
 # Import OpenCV2 for image processing
 import cv2
+import time
 # Import numpy for matrices calculations
 import numpy as np
 
@@ -86,14 +87,12 @@ while True:
 
 
 
-
-
-
-        if(Id == 3 and round(100 - confidence, 2)>=10):
-            Id =  " thanh".format(round(100 - confidence, 2))
-            file.write("thanh")
+        if(Id == 3 and round(100 - confidence, 2)>=10):            
+            Id =  " ngoc thanh".format(round(100 - confidence, 2))
+            file.write(" ngoc thanh")
             #file.close()
             os.startfile("test.py")
+            time.sleep(3)
         # Put text describe who is in the picture
         cv2.rectangle(im, (x-22,y-90), (x+w+22, y-22), (0,255,0), -1)
         cv2.putText(im, str(Id), (x,y-40), font, 1, (255,255,255), 3)
@@ -107,6 +106,5 @@ while True:
 
 # Stop the camera
 cam.release()
-
 # Close all windows
 cv2.destroyAllWindows()
